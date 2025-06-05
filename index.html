@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作者统计工具</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script> <!-- 引入 XLSX 库 -->
+</head>
+<body>
+    <h1>作者统计工具</h1>
+    <div class="instructions">
+        <h2>使用说明</h2>
+        <p>1. 每一行可以输入备注，并输入若干个网址（每个占一行）或上传一个 Excel 文件。</p>
+        <p>2. 上传的 Excel 文件要求：</p>
+        <ul>
+            <li>文件必须包含一个标题为 <strong>Authors</strong> 的列。</li>
+            <li>Authors 列的内容格式支持以下情况：</li>
+            <ul>
+                <li>作者姓名后带机构信息，多个作者用分号分隔，例如：<br>
+                    Yu Yan (Institute of Computing Technology, Chinese Academy of Sciences); Sheng Sun (Institute of Computing Technology, Chinese Academy of Sciences)
+                </li>
+                <li>仅作者姓名，多个作者用分号或逗号分隔，例如：<br>
+                    Yu Yan, Sheng Sun, Zixiang Tang
+                </li>
+            </ul>
+        </ul>
+        <p>3. 点击 <strong>+</strong> 按钮添加新行，点击 <strong>-</strong> 按钮删除行。</p>
+        <p>4. 点击 <strong>统计作者信息</strong> 按钮生成统计结果。</p>
+    </div>
+    <div id="inputContainer">
+        <div class="inputRow">
+            <input type="text" class="remarkInput" placeholder="备注">
+            <textarea class="urlInput" placeholder="网址"></textarea>
+            <input type="file" class="fileInput" accept=".xlsx">
+            <button class="deleteRowButton">-</button>
+        </div>
+    </div>
+    <button id="addRowButton">+</button>
+    <button id="processButton">统计作者信息</button>
+</body>
+</html>
